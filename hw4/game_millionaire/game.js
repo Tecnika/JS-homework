@@ -1,42 +1,61 @@
 let game = {
+    create() {
+        document.getElementById('howlvl').style.visibility = 'hidden';
+        document.getElementById('stop').style.visibility = 'hidden';
+        document.getElementById('next').style.visibility = 'hidden';
+        document.getElementById('block').style.visibility = 'hidden';
+    },
     buttonopen(a) {
         let buttons = document.getElementsByClassName('ansver');
         if (a) {
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].disabled = true;
                 buttons[i].style.backgroundColor = config.color.default;
-                buttons[i].style.visibility = 'hidden';
+                buttons[i].style.color = "#000";
+                // buttons[i].style.visibility = 'hidden';
             }
         } else {
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].disabled = false;
                 buttons[i].style.backgroundColor = config.color.default;
-                buttons[i].style.visibility = 'visible ';
+                // buttons[i].style.visibility = 'visible ';
             }
         }
 
     },
-    run() {
+    swap() {
+        if (document.getElementById('start').style.visibility == 'hidden') {
+            document.getElementById('stop').style.visibility = 'hidden';
+            document.getElementById('start').style.visibility = 'visible'
+        } else {
+            document.getElementById('start').style.visibility = 'hidden';
+            document.getElementById('stop').style.visibility = 'visible'
+        }
+    },
+    start() {
+        document.getElementById('howlvl').style.visibility = 'hidden';
+        document.getElementById('stop').style.visibility = 'visible';
         console.log("Игра запускается");
         this.buttonopen(false);
-        document.getElementById('questions').style.visibility = 'visible ';
-        document.getElementById('next').style.visibility = 'hidden';
-
-        document.getElementById('stop').disabled = false;
-        document.getElementById('start').disabled = true;
+        document.getElementById('block').style.visibility = 'visible ';
+        // this.swap();
         console.log("Игра запущена");
-        create.session(1, 1, 1);
-        // create.session(create.lvl(config.levels));
+        document.getElementById("point").innerHTML = config.point_now;
+        create.session(create.levels(config.levels));
+    },
+    run() {
+        document.getElementById('howlvl').style.visibility = 'visible';
+        document.getElementById('start').style.visibility = 'hidden';
     },
     stop() {
         this.buttonopen(true);
-        document.getElementById('next').style.visibility = 'hidden';
-        document.getElementById('stop').disabled = true;
-        document.getElementById('start').disabled = false;
-        document.getElementById('questions').style.visibility = 'hidden ';
+        this.create();
+        this.swap();
         config.sessionNumber = 0;
-        // create.checkList = [];
-        console.log("Игра Закончена")
+        create.checkList = [];
+        console.log("Игра Закончена");
+        console.log("Счет: " + config.point_now + " из " + config.point_max);
+        config.point_now = 0;
     },
 
     go(answer) {
@@ -58,17 +77,14 @@ let game = {
                 break;
         }
         let color;
-        let buttons = document.getElementsByClassName('ansver');
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].disabled = true;
-            buttons[i].style.color = "#fff";
-        }
+        this.buttonopen(true);
         if (generate.trueAnswer(answer, create.checkList)) {
             color = config.color.true;
         } else {
             color = config.color.false;
         }
 
+        document.getElementById("point").innerHTML = config.point_now + " / " + config.point_max;
         console.log("Баллы зачислены");
         document.getElementById(val).style.backgroundColor = color;
         val = '';
@@ -86,21 +102,25 @@ let game = {
             this.stop();
         }
     },
-    // submit_lvl() {
-    //     if (document.getElementById("lvl1").checked || document.getElementById("lvl2").checked || document.getElementById("lvl3").checked) {
-    //         if (document.getElementById("lvl1").checked) {
-    //             config.levels = 1;
-    //         } else {
-    //             if (document.getElementById("lvl2").checked) {
-    //                 config.levels = 2;
-    //             } else {
-    //                 config.levels = 2;
-    //             }
-    //         }
-    //         document.getElementById('start').disabled = false;
-    //     } else {
-    //         console.log("Выберите  уровень сложности");
-    //     }
+    submit_lvl() {
+        document.getElementById('start').style.visibility = 'hidden';
+        if (document.getElementById("lvl1").checked || document.getElementById("lvl2").checked || document.getElementById("lvl3").checked) {
+            if (document.getElementById("lvl1").checked) {
+                config.levels = 1;
+            } else {
+                if (document.getElementById("lvl2").checked) {
+                    config.levels = 2;
+                } else {
+                    config.levels = 3;
+                }
+            }
 
-    // },
+            this.start();
+
+        } else {
+            console.log("Выберите  уровень сложности");
+        }
+
+    },
 }
+game.create();

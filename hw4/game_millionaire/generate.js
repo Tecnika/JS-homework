@@ -12,9 +12,11 @@ function random(a1, b1, b2) {
     return (a1);
 }
 let generate = {
-    qwiz(lvl) {
+    // qwiz(lvl) {
+    qwiz(lvl, a) {
         // generate_question(lvl) {
-        let a = getRandomInt(lvl.length),
+        let
+        // a = getRandomInt(lvl.length),
             b, c, d, e;
         b = getRandomInt(4);
         c = getRandomInt(4);
@@ -73,18 +75,48 @@ let generate = {
     trueAnswer(answer, logs) {
         let session = config.sessionNumber,
             sessionLogs = logs[session],
-            true_answer;
+            true_answer, point = 0;
         for (let i = 2; i < 6; i++) {
             if (sessionLogs[i] == 0) {
                 true_answer = i - 1;
             }
         }
+
+        if (sessionLogs[0] == questions.easy) {
+            point = config.point.easy;
+        } else if (sessionLogs[0] == questions.middle) {
+            point = config.point.middle;
+        }
+        if (sessionLogs[0] == questions.hard) {
+            point = config.point.hard;
+        }
+
         console.log("Ответ проверен");
         if (answer == true_answer) {
+
             console.log("Ответ верен");
+            config.point_now += point;
+            console.log("+" + point + " Баллов");
             return true;
         } else {
             console.log("Ответ неверен");
+            let val = '';
+            switch (true_answer) {
+                case 1:
+                    val = 'ansver1';
+                    break;
+                case 2:
+                    val = 'ansver2';
+                    break;
+                case 3:
+                    val = 'ansver3';
+                    break;
+                case 4:
+                    val = 'ansver4';
+                    break;
+            }
+            console.log("Правильный ответ подсвечен");
+            document.getElementById(val).style.backgroundColor = config.color.true;
             return false;
         }
     }

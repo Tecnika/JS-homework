@@ -1,4 +1,6 @@
 const config = {
+    point_now: 0,
+    point_max: 0,
     point: {
         easy: 100,
         middle: 300,
@@ -19,7 +21,6 @@ const config = {
 };
 // };
 
-// comsole.log("В игре" + count.all + "/n Категория просто:" + count.easy + " Баллы: " + point.easy + "/n Категория средне:" + count.middle + " Баллы: " + point.middle + "/n Категория сложно:" + count.hard + " Баллы: " + point.hard);
 (function() {
     var logger = document.getElementById('log');
     console.log = function() {
