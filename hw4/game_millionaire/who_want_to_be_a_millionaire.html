@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="../../style.css" type="text/css" />
+    <style>
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        #map {
+            font-family: 'Roboto Mono', monospace;
+        }
+        
+        .ansver {
+            width: 300px;
+            border-radius: 30px;
+            margin: 5px;
+            font-size: 14px;
+            border: 3px solid goldenrod;
+            visibility: hidden;
+            color: white;
+        }
+        
+        .ansver:hover:active {
+            background-color: blue;
+            color: white;
+        }
+        
+        .stop {
+            background-color: red;
+            color: white
+        }
+        
+        .start {
+            background-color: green;
+            color: white
+        }
+        
+        #next {
+            background-color: royalblue;
+            color: white;
+            visibility: hidden;
+        }
+        
+        #log {
+            border: 3px solid brown;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            overflow-y: scroll;
+            display: inline-block;
+            padding: 5px;
+        }
+        /*         
+        p {
+            margin: 0;
+            padding: 0;
+        } */
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+        <img width="300px" src="https://static.wikia.nocookie.net/russiangameshowsplaying/images/d/df/Khsm_logo.png/revision/latest?cb=20201124204839&path-prefix=ru" alt="DnD">
+        <div class="flex-row"><button class="button" id="back" onclick="document.location='../index.html'"> &#11178;
+                Назад</button>
+            <!-- <div>
+                <P>Сложность</P>
+                <p><input type="radio" id="lvl1" name="lvl" value="1">&#9679;&#9675;&#9675; </p>
+                <p><input type="radio" id="lvl2" name="lvl" value="2">&#9679;&#9679;&#9675; </p>
+                <p><input type="radio" id="lvl3" name="lvl" value="3">&#9679;&#9679;&#9679;</p>
+                <button class="button " onclick=" game.submit_lvl() ">Выбрать</button>
+            </div> -->
+            <button class=" button start " id="start " onclick="game.run() ">Начать игру</button>
+            <button class="button stop " id="stop " onclick="game.stop() " disabled>Сдаться </button>
+            <button class="button stop " id="next " onclick="game.next() ">Далее </button>
+            <div id="Num "></div>
+        </div>
+        <div class="flex-row ">
+            <div>
+                <div id="questions "></div>
+                <div class="flex-row "><button class="button ansver " id="ansver1 " onclick="game.go(1) " disabled></button><button class="button ansver " id="ansver2 " onclick="game.go(2) " disabled></button></div>
+                <div class="flex-row "><button class="button ansver " id="ansver3 " onclick="game.go(3) " disabled></button><button class="button ansver " id="ansver4 " onclick="game.go(4) " disabled></button></div>
+            </div>
+            <div>
+                <p>Логи игры:</p>
+                <div id="log ">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="questions.js "></script>
+    <script src="config.js "></script>
+    <script src="generate.js "></script>
+    <script src="create.js "></script>
+    <script src="game.js "></script>
+
+</body>
+
+</html>
