@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="../../style.css" type="text/css" />
+    <style>
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        #map {
+            font-family: 'Roboto Mono', monospace;
+        }
+        
+        .navigation {
+            width: 10s0px;
+            border-radius: 30px;
+            margin: 5px;
+            font-size: 24px;
+        }
+        
+        .stop {
+            background-color: red;
+            color: white
+        }
+        
+        .start {
+            background-color: green;
+            color: white
+        }
+        
+        #log {
+            border: 3px solid brown;
+            width: 300px;
+            height: 500px;
+            overflow: hidden;
+            overflow-y: scroll;
+            display: inline-block;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+        <img width="300px" src="https://i.pinimg.com/originals/c7/c3/a0/c7c3a029d172b33287003d26a0c693f9.png" alt="DnD">
+        <button class="button" id="back" onclick="document.location='../index.html'">
+            &#11178; Назад</button>
+        <div class="flex-row">
+            <div>
+                <div id="text2"></div>
+                <div><button class="button start" id="start" onclick="game.run()">Начать игру</button></div>
+                <div id="map"></div>
+                <div id="text"></div>
+                <div class="flex-row"><button class="button navigation" onclick="game.go(7)" disabled>&#129156;</button><button class="button navigation" onclick="game.go(8)" disabled>&#129153;</button><button class="button navigation" onclick="game.go(9)" disabled>&#129157;</button></div>
+                <div class="flex-row"><button class="button navigation" onclick="game.go(4)" disabled>&#129152;</button><button class="button navigation stop" id="stop" onclick="game.stop()" disabled>СТОП</button><button class="button navigation " onclick="game.go(6)" disabled>&#129154;</button></div>
+                <div class="flex-row "><button class="button navigation " onclick="game.go(1)" disabled>&#129159;</button><button class="button navigation " onclick="game.go(2)" disabled>&#129147;</button><button class="button navigation " onclick="game.go(3)" disabled>&#129158;</button></div>
+            </div>
+            <div>
+                <p>Логи игры:</p>
+                <div id="log">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="config.js "></script>
+    <script src="player.js "></script>
+    <script src="renderer.js "></script>
+    <script src="mover.js "></script>
+    <script src="game.js "></script>
+</body>
+
+</html>

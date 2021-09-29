@@ -95,8 +95,8 @@ let generate = {
         if (answer == true_answer) {
 
             console.log("Ответ верен");
-            config.point_now+=point;
-            console.log("+"+point+" Баллов");
+            config.point_now += point;
+            console.log("+" + point + " Баллов");
             return true;
         } else {
             console.log("Ответ неверен");

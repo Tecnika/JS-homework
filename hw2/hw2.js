@@ -39,31 +39,32 @@ function task3() {
     console.log(a);
     b = randomaze(max);
     console.log(b);
-    if (a >= 0 & b >= 0)
+    if (a >= 0 && b >= 0)
         alert("Если a = " + a + ", а b = " + b + ", то a - b = " + (a - b) +
             " и b - a = " + (b - a));
     else {
-        if (a < 0 & b < 0)
+        if (a < 0 && b < 0) {
             alert("Если a = " + a + ", а b = " + b + ", то a * b = " + (a * b));
-        else
+        } else {
             alert("Если a = " + a + ", а b = " + b + ", то a + b = " + (a + b));
+        }
     }
 }
 
 function plus(a, b) {
-    return (parseInt(a, 10) + Number(b, 10));
+    return parseInt(a, 10) + Number(b, 10);
 }
 
 function minus(a, b) {
-    return (a - b);
+    return a - b;
 }
 
 function division(a, b) {
-    return (a / b);
+    return a / b;
 }
 
 function multiplication(a, b) {
-    return (a * b);
+    return a * b;
 }
 
 function task4() {
@@ -119,7 +120,7 @@ function task5() {
         b = prompt('Это неверное число, повторите попытку ', '');
     }
     operation = prompt('Выберте операцию, где 1-Сложение, 2- Вычитание, 3- Умножение, 4- Деление', '');
-    while (!(operation == 1 | operation == 2 | operation == 3 | operation == 4))
+    while (!(operation == 1 || operation == 2 || operation == 3 || operation == 4))
         operation = prompt('Неверно! Повторите выбор операции, где 1-Сложение, 2- Вычитание, 3- Умножение, 4- Деление', '');
     alert("Итог операции: " + mathOperation(a, b, operation))
 }
@@ -132,18 +133,18 @@ function task6() {
         alert("Ошибка, введите сумму");
     else {
         money = parseInt(money, 10);
-        console.log(typeof(money));
+        console.log(typeof (money));
         a = money % 10;
         console.log(a);
         if (money != 0) {
             if (a == 1) {
                 b = "ь";
             } else
-            if (a == 2 | a == 3 | a == 4) {
-                b = "я";
-            } else {
-                b = "ей";
-            }
+                if (a == 2 || a == 3 || a == 4) {
+                    b = "я";
+                } else {
+                    b = "ей";
+                }
             alert("Ваша сумма в " + money + " рубл" + b + " успешно зачислена.");
         } else
             alert("Деньги не зачислены");
