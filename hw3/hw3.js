@@ -1,3 +1,5 @@
+'use strict'
+
 function task1() {
     let b;
     for (let a = 0; a < 10; a++) {
@@ -5,14 +7,13 @@ function task1() {
             b = "не";
         else
             b = "";
-        console.log(a + " — " + b +
-            "четное число ");
+        console.log(a + " — " + b + "четное число ");
     }
 
 }
 
 function task2() {
-    'use strict'
+
     const post = {
         author: "John",
         postId: 23,
@@ -100,14 +101,13 @@ function task4() {
     console.log(result);
 
     products.sort(function(a, b) {
-        if (a.price > b.price) {
+        if (a.price > b.price)
             return 1;
-        } else
-        if (a.price < b.price) {
+        else
+        if (a.price < b.price)
             return -1;
-        } else {
+        else
             return 0;
-        }
 
     });
     console.log("Отсортировано");
