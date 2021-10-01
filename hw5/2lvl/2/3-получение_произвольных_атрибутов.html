@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        текст
+    </div>
+    <button class="button" id="back" onclick="document.location='../../index.html'">&#11178; Назад</button>
+
+    <!-- 
+    Задание.
+    1. Сохраните ссылку на div в переменную
+    2. Назначьте div'у обработку клика, у функции-обработчика объявите параметр event.
+    3. При клике из event.target c помощью getAttribute() получите значение
+    каждого атрибута и выведите в консоль.
+    -->
+    <script>
+        let p = document.querySelector("div");
+        p.onclick = function(event) {
+            b = event.target;
+            a = b.attributes;
+            console.log(a);
+            for (let i = 0; i < a.length; i++) {
+                console.log(a[i]);
+                // console.log(event.target.getAttribute(a[i]));
+            }
+            // console.log(b.getAttribute('class'));
+            // console.log(b.getAttribute('id'));
+            // console.log(b.getAttribute('tabindex'));
+            // console.log(b.getAttribute('aria-labelledby'));
+            // console.log(b.getAttribute('aria-hidden'));
+
+
+        }
+    </script>
+</body>
+
+</html>
