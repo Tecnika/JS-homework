@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <b>Lorem, ipsum.</b>
+    <b class="sign">Lorem, ipsum.</b>
+    <b class="sign">Lorem, ipsum.</b>
+    <b>Lorem, ipsum.</b>
+    <button class="button" id="back" onclick="document.location='../../index.html'">&#11178; Назад</button>
+
+    <!-- 
+    Задание.
+    1. Получите все теги b.
+    2. С помощью метода contains() из classList, проверьте, есть ли у тега
+    класс sign, и если нет, то тогда добавьте с помощью метода add()
+    -->
+
+    <script>
+        let a = document.querySelectorAll("b");
+        console.log(a);
+        a.forEach(element => {
+            let b = element.classList;
+            if (!(b.contains("sign"))) {
+                b.add("sign");
+            }
+        });
+    </script>
+</body>
+
+</html>
