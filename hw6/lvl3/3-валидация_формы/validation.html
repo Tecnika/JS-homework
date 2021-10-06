@@ -13,11 +13,11 @@
 </head>
 
 <body>
-    <input type="button" id="back" onclick="document.location='../../index.html'" value=" &#11178; Назад" /><br>
+    <button id="back " onclick="document.location='../../index.html' " /> &#11178; Назад </button> <br>
     <form>
-        <input id="first" type="text"><br>
+        <input id="first " type="text "><br>
         <br>
-        <input id="second" type="text"><br>
+        <input id="second " type="text "><br>
         <br>
         <button>Отправить</button>
     </form>
@@ -39,6 +39,25 @@
      -->
 
     <script>
+        function treatment(event) {
+            inp_1.style.borderColor = "gray"
+            inp_2.style.borderColor = "gray";
+            if ((inp_1.value == '') || inp_2.value == '') {
+                if (inp_1.value == '') {
+                    inp_1.style.borderColor = "red";
+                }
+                if (inp_2.value == '') {
+                    inp_2.style.borderColor = "red";
+                }
+
+            }
+            event.preventDefault();
+        }
+        // let inputs = document.querySelectorAll('input');
+        let formEl = document.querySelector("form"),
+            inp_1 = document.getElementById("first "),
+            inp_2 = document.getElementById("second ");
+        formEl.addEventListener('submit', treatment);
     </script>
 </body>
 
