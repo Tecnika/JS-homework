@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p class="first second third">
+        Lorem ipsum dolor sit.
+    </p>
+    <button class="button" id="back" onclick="document.location='../../index.html'">&#11178; Назад</button>
+
+    <!-- 
+    Задание.
+    1. Назначьте обработку клика по параграфу, у функции обработчика объявите
+    параметр event.
+    2. При клике выведите в консоль event.target.classList
+    3. Переберите с помощью forEach event.target.classList и выведите каждый класс
+    в консоль.
+    -->
+    <script>
+        let p = document.querySelector("p");
+        p.onclick = function(event) {
+            a = event.target.classList;
+            console.log(a);
+            a.forEach(element => {
+                console.log(element);
+            });
+        }
+    </script>
+</body>
+
+</html>

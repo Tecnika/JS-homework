@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <style>
+        i {
+            font-size: 50px;
+        }
+        
+        .golden {
+            color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" id="back" onclick="document.location='../../index.html'" value=" &#11178; Назад" /><br>
+
+    <i id="first" class="fas fa-star"></i>
+    <i id="second" class="fas fa-star"></i>
+    <i id="third" class="fas fa-star"></i>
+    <i id="fourth" class="fas fa-star"></i>
+    <i id="fifth" class="fas fa-star"></i>
+
+    <!-- Задание. Используя заготовку, сделайте чтобы при наведении на вторую звезду
+    подсвечивались первая и вторая звезды. При наведени на третью звезду подсвечивались
+    первая, вторая и третья звезды, и т.д. 
+    mouseover - это событие срабатывает когда мы наводим на элемент.
+    mouseout - это событие срабатывает когда мы перестаем наводить на элемент.
+	Вы можете пойти более продвинутым путем, и получать предыдущий элемент 
+	например с помощью https://mzl.la/3a4SPlR
+    -->
+
+    <script>
+        let firstStar = document.getElementById('first');
+        let secondStar = document.getElementById('second');
+        let thirdStar = document.getElementById('third');
+        let fourthStar = document.getElementById('fourth');
+        let fifthStar = document.getElementById('fifth');
+        let mass = [firstStar, secondStar, thirdStar, fourthStar, fifthStar];
+        let goldenClass = 'golden';
+        console.log(mass);
+        // firstStar.addEventListener('mouseover', function() {
+        //     if (!firstStar.classList.contains('goldenClass')) {
+        //         firstStar.classList.add(goldenClass);
+        //     }
+        // });
+
+        // firstStar.addEventListener('mouseout', function() {
+        //     firstStar.classList.remove(goldenClass);
+        // });
+        function ligthOn(a) {
+            for (let i = 0; i < a; i++) {
+                if (!mass[i].classList.contains('goldenClass')) {
+                    mass[i].classList.add(goldenClass);
+                }
+            }
+        };
+
+        function ligthOff(a) {
+            for (let i = 0; i < a; i++) {
+                mass[i].classList.remove(goldenClass);
+            }
+        };
+        //1
+        firstStar.addEventListener('mouseover', function() {
+            ligthOn(1)
+        });
+        firstStar.addEventListener('mouseout', function() {
+            ligthOff(1)
+        });
+        //2
+        secondStar.addEventListener('mouseover', function() {
+            ligthOn(2)
+        });
+        secondStar.addEventListener('mouseout', function() {
+            ligthOff(2)
+        });
+        //3
+        thirdStar.addEventListener('mouseover', function() {
+            ligthOn(3)
+        });
+        thirdStar.addEventListener('mouseout', function() {
+            ligthOff(3)
+        });
+        //4
+        fourthStar.addEventListener('mouseover', function() {
+            ligthOn(4)
+        });
+        fourthStar.addEventListener('mouseout', function() {
+            ligthOff(4)
+        });
+        //5
+        fifthStar.addEventListener('mouseover', function() {
+            ligthOn(5)
+        });
+        fifthStar.addEventListener('mouseout', function() {
+            ligthOff(5)
+        });
+    </script>
+</body>
+
+</html>
