@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <button id="back " onclick="document.location='../../index.html' " /> &#11178; Назад </button> <br>
     <div class="products">
         <div class="product">
             <div class="imgWrap">
@@ -41,7 +44,18 @@
     -->
 
     <script>
-        
+        let img = document.querySelectorAll('img');
+
+        function change() {
+
+            for (let i = 0; i < img.length; i++) {
+                let a = 'images/' + i + '.jpg';
+                console.log(a);
+                img[i].setAttribute('src', 'images/' + (i + 1) + '.jpg');
+            }
+        };
+        setTimeout(change(), 3000);
     </script>
 </body>
+
 </html>
