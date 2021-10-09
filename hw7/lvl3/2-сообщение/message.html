@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body> <input type="button" id="back" onclick="document.location='../../index.html'" value="&#11178; Назад"><br>
     <button>Показать сообщение</button>
     <div class="message">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, aliquam enim voluptates quibusdam
-        perferendis sint ipsa, nulla quas doloribus nobis libero voluptatem unde inventore. Ut quas corporis fugit error
-        explicabo? Ipsa quos qui similique sequi officia quod ab reiciendis alias!
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, aliquam enim voluptates quibusdam perferendis sint ipsa, nulla quas doloribus nobis libero voluptatem unde inventore. Ut quas corporis fugit error explicabo? Ipsa quos qui similique sequi
+        officia quod ab reiciendis alias!
     </div>
 
     <!-- 
@@ -26,7 +25,14 @@
     -->
 
     <script>
-        
+        let btn = document.querySelector('button');
+        let message = document.querySelector('.message');
+        let audioElement = new Audio('notification.mp3');
+        console.log(btn);
+        btn.addEventListener('click', function() {
+            // audioElement.play();
+            message.style.transform = "translateY(-" + (message.clientHeight + 10) + "px)"
+        })
     </script>
 </body>
 
