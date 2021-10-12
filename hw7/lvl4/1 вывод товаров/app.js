@@ -71,15 +71,21 @@ const products = {
         },
     ],
 };
-let products = document.querySelector('.products');
+let products_html = document.querySelector('.products');
+let btn = document.querySelectorAll('button');
+btn.forEach(element => {
+    element.addEventListener("click", clickHandler);
 
+});
 /**
  * Эта функция должна вызываться при клике по кнопкам.
  * @param {MouseEvent} event
  */
 function clickHandler(event) {
     //вам нужно очищать содержимое .products
-    products.innerHTML = " ";
+    products_html.innerHTML = "";
+    showCategory(event.target.dataset.type);
+
     //в showCategory надо передать строку с типом категории, тип берите
     //из атрибута data-type у кнопки, по которой кликнули.
 
@@ -94,6 +100,18 @@ function clickHandler(event) {
  */
 function showCategory(category) {
 
+    switch (category) {
+        case "phones":
+            getProductMarkup(products.phones);
+
+            break;
+        case "tablets":
+            getProductMarkup(products.tablets);
+            break;
+        case "tv":
+            getProductMarkup(products.tv);
+            break;
+    }
 }
 
 /**
@@ -106,5 +124,8 @@ function showCategory(category) {
  * в верху этого файла.
  */
 function getProductMarkup(product) {
+    product.forEach(element => {;
+        products_html.insertAdjacentHTML('beforeend', '<div style="display: flex;flex-direction: column; margin-right: 10px;"><img src="' + element.imageUrl + '" alt="Изображение"><p>id:' + element.id + '</p><p>Название:' + element.name + '</p><p>Цена:' + element.price + '</p></div>');
+    });
 
 }

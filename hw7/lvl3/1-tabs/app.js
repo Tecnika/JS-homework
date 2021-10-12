@@ -60,7 +60,7 @@ function changeText(event) {
                     break;
                 case 1:
                     text.textContent = texts.text2;
-                    console.log(i);
+                    // console.log(i);
                     break;
                 case 2:
                     text.textContent = texts.text3;

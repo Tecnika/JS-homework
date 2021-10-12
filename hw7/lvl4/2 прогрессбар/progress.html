@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body> <input type="button" id="back" onclick="document.location='../../index.html'" value="&#11178; Назад"><br>
+
     <div></div>
 
     <!-- 
@@ -35,8 +36,15 @@
         можете также добавить какой-нибудь коэффициент, чтобы подобрать желаемую скорость
         заполнения прогресс-бара.
         */
-        
 
+        for (let i = 0; i <= 100; i++) {
+            window.setTimeout(changeProgress, 1000 * i, i);
+            console.log(i);
+        }
+
+        function division(val, by) {
+            return (val - val % by) / by;
+        }
     </script>
 </body>
 
