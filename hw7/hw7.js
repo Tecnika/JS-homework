@@ -24,6 +24,6 @@ function task_lvl3_2() { document.location.href = "./lvl3/2-сообщение/m
 
 //4
 
-function task_lvl4_1() { document.location.href = "./lvl4/1 вывод товаров/1-вывод_товаров.html"; }
+function task_lvl4_1() { document.location.href = "./lvl4/1-products/1-вывод_товаров.html"; }
 
-function task_lvl4_2() { document.location.href = "./lvl4/2 прогрессбар/progress.html"; }
+function task_lvl4_2() { document.location.href = "./lvl4/2-progressbar/progress.html"; }

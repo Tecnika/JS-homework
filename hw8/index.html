@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework №3</title>
+    <style>
+        #hw {
+            width: 300px;
+        }
+        
+        .horizontal {
+            display: flex;
+            flex-flow: row;
+            align-items: flex-start;
+        }
+        
+        .task {
+            width: auto;
+            visibility: hidden;
+            /* visibility: inherit; */
+        }
+        
+        .vertical {
+            margin: 10px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div>
+        <input type="button" id="hw" class="button" onclick="task1()" value="С профессиональной верстки">
+
+        <input type="button" id="hw" class="button" onclick="task2()" value="Без профессиональной версткой">
+        <div class="horizontal">
+            <input type="button" class="button task vertical" onclick="task2_1()" value="Замена картинки">
+            <input type="button" class="button task vertical" onclick="task2_2()" value="Загрузка постов">
+            <input type="button" class="button task vertical" onclick="task2_3()" value="Chess Board"></div>
+        <p> Делала 2 задания, тк я в процессе</p>
+        <button class="button" id="back" onclick="document.location='../index.html'">&#11178; Назад</button>
+    </div>
+    <script src="hw8.js"></script>
+</body>
+
+</html>
